@@ -1,4 +1,4 @@
-# Завдання №1
+# # Завдання №1
 
 import datetime 
 from datetime import  datetime, timedelta
@@ -16,7 +16,7 @@ def get_days_from_today():
 date = get_days_from_today()
 print(f"{date} днів")
 
-# # Завдання №2
+# # # Завдання №2
 
 import random
 
@@ -29,7 +29,7 @@ def get_numbers_ticket(min, max, quantity):
 lottery_numbers = get_numbers_ticket(1, 1000, 6)
 print("Ваші лотерейні числа:", lottery_numbers)
 
-# Завдання №3
+# # Завдання №3
 
 import re
 
@@ -89,5 +89,5 @@ def get_upcoming_birthdays(users = None):
                     birthday.append({"name": user["name"], "birthday":(date_user + dt.timedelta(days = 2)).strftime("%Y.%m.%d")})
     return birthday
    
-# print(get_upcoming_birthdays(users))
+print(get_upcoming_birthdays(users))
 
