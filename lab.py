@@ -5,15 +5,18 @@ from datetime import  datetime, timedelta
 
 def get_days_from_today():
     dfey_input = input("Введіть дату:(YYYY-MM-DD) ")
-    date = datetime.strptime(dfey_input, "%Y-%m-%d")
-    now = datetime.now()
-    get_days_from_today = abs(now.toordinal() - date.toordinal())
-    return(get_days_from_today)
+    try :
+        date = datetime.strptime(dfey_input, "%Y-%m-%d")
+        now = datetime.now()
+        get_days_from_today = abs(now.toordinal() - date.toordinal())
+        return(get_days_from_today)
+    except ValueError:
+        print("{dfey_input} ввели неправильний формат дати")
 
 date = get_days_from_today()
 print(f"{date} днів")
 
-# Завдання №2
+# # Завдання №2
 
 import random
 
@@ -48,14 +51,14 @@ def normalize_phone(raw_numbers):
     if len(match) == 10:
         normalize_phone = f"+38{match}"
     elif len(match) == 11:
-        normalize_phone = f"+3{match}"
+            normalize_phone = f"+3{match}"
     elif len(match) == 12:
-        normalize_phone = f"+{match}"
+            normalize_phone = f"+{match}"
     else:
         normalize_phone = match
     return(normalize_phone)
 
-sanitized_numbers = [normalize_phone(num) for num in raw_numbers]
+sanitized_numbers = [normalize_phone(num)for num in raw_numbers]
 print("Нормалізовані номери телефонів для SMS-розсилки:", sanitized_numbers)
 
 # Завдання 4
@@ -86,5 +89,5 @@ def get_upcoming_birthdays(users = None):
                     birthday.append({"name": user["name"], "birthday":(date_user + dt.timedelta(days = 2)).strftime("%Y.%m.%d")})
     return birthday
    
-print(get_upcoming_birthdays(users))
+# print(get_upcoming_birthdays(users))
 
